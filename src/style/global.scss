@@ -1,0 +1,63 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat+Alternates:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat+Alternates:wght@700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+#root {
+  --font-family: "Proxima", sans-serif;
+  --second-family: "Raleway", sans-serif;
+  --third-family: "Inter", sans-serif;
+  --font3: "Montserrat-Alt1", sans-serif;
+  --font4: "Poppins", sans-serif;
+  --font5: "Montserrat", sans-serif;
+
+
+  // цвета
+
+  --text: #4f5e77;
+  --main: #0c66e4;
+  --wihte: #fff;
+
+  font-family: var(--second-family);
+  line-height: 1;
+  font-weight: 400;
+  font-size: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --transtition-duration-basic: 0.3s
+}
+
+.main {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.container {
+  box-sizing: content-box;
+  max-width: 1920px;
+  padding: 0 15px;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+body {
+  transition: all var(--transtition-duration-basic);
+}
+

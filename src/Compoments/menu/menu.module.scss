@@ -1,0 +1,22 @@
+.nav {
+
+}
+.list {
+  display: flex;
+  column-gap: 50px;
+
+  @media (max-width: 1920px) {
+    gap: calc(25px + (50 - 25) * ((100vw - 1440px) / (1920 - 1440)));
+  }
+}
+
+.link {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--text);
+
+  :hover {
+    color: var(--main);
+  }
+}

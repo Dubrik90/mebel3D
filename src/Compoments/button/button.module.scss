@@ -1,0 +1,133 @@
+@mixin button {
+  cursor: pointer;
+
+  display: flex;
+ // align-items: center;
+
+  padding: 16px;
+
+  font-family: var(--font-family);
+ // font-size: 1rem;
+ // font-weight: 600;
+  line-height: 1.25rem;
+  text-align: center;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 2rem;
+
+  transition:
+          var(--transtition-duration-basic) background-color,
+          var(--transtition-duration-basic) color;
+
+  &:focus-visible {
+    outline: 2px solid var(--main);
+  }
+
+  &:disabled {
+    cursor: initial;
+  }
+
+  &.fullWidth {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.back {
+  @include button;
+
+  gap: 6px;
+
+  padding: 0 0.5rem 0 0.1rem;
+
+  font-size: 14px;
+  //font-weight: var(--font-weight-regular);
+  //line-height: var(--line-height-m);
+
+  border-radius: 4px;
+
+  &:hover {
+    color: var(--text);
+  }
+
+  &:active {
+    color: var(--text);
+  }
+
+  &:disabled {
+   // color: var(--color-checkbox-disabled);
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--text);
+  }
+}
+
+.primary {
+  @include button;
+
+  color: var(--main);
+  background-color: red;
+  box-shadow:
+          0 4px 18px rgb(245 26 81 / 35%),
+          inset 0 1px 0 rgb(255 255 255 / 30%);
+
+  &:hover {
+   // background-color: var(--color-accent-400);
+  }
+
+  &:active {
+  //  background-color: var(--color-accent-600);
+  }
+
+  &:disabled {
+  //  color: var(--color-button-text-disabled);
+   // background-color: var(--color-button-disabled);
+  }
+}
+
+.secondary {
+  @include button;
+  gap: 10px;
+
+  color: var(--main);
+ // background-color: var(--color-button-bg-secondary);
+ // box-shadow: 0 2px 10px rgba(109 109 109 / 25%);
+
+  &:hover {
+    background-color: var(--color-button-bg-secondary-hover);
+  }
+
+  &:active {
+    background-color: var(--color-button-bg-secondary-active);
+  }
+
+  &:disabled {
+    color: var(--color-button-text-secondary-disabled);
+    background-color: var(--color-button-bg-secondary);
+  }
+}
+
+.outlined {
+  @include button;
+  color: var(--main);
+  background-color: transparent;
+  border: 1px solid currentcolor;
+
+  &:hover {
+    color: var(--wihte);
+    background-color: var(--main);
+  }
+
+  &:active {
+   // background-color: var(--color-action-active);
+  }
+
+  &:disabled {
+  //  color: var(--color-button-disabled);
+  //  background-color: var(--color-bg-primary);
+  }
+}

@@ -1,0 +1,33 @@
+.header {
+  padding: 50px 0;
+
+  @media (max-width: 1920px) {
+    padding-top: calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
+    padding-bottom: calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
+  }
+
+
+}
+
+.logo {
+  
+
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.btnBlock {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  @media (max-width: 1920px) {
+    gap: calc(15px + (35 - 15) * ((100vw - 1440px) / (1920 - 1440)));
+  }
+
+}

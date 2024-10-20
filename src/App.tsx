@@ -6,15 +6,15 @@ import {HomePage} from "./pages/home-page/home-page.tsx";
 function App() {
 
 
-  return (
-    <>
-        <Header/>
-        <main className={'main'}>
-            <HomePage/>
-        </main>
-        <Footer/>
-    </>
-  )
+    return (
+        <>
+            <Header/>
+            <main className={'main'}>
+                <HomePage/>
+            </main>
+            <Footer/>
+        </>
+    )
 }
 
 export default App

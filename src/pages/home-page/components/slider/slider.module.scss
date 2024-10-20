@@ -1,0 +1,33 @@
+.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 36px;
+  color: var(--main);
+  flex: 1 1 auto;
+
+  @media (max-width: 1024px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
+  @media (max-width: 700px) {
+    text-align: center;
+  }
+}
+
+.subtitle {
+  font-family: var(--font-family);
+  font-size: 36px;
+  color: var(--text);
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media (max-width: 700px) {
+    text-align: center;
+  }
+}

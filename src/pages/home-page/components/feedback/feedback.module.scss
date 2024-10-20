@@ -1,0 +1,24 @@
+.feedback {
+  padding: 70px 0;
+}
+
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 32px;
+    padding: 26px;
+  }
+}
+
+.title {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 56px;
+  color: var(--main);
+}

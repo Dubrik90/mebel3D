@@ -1,4 +1,7 @@
 import s from './menu.module.scss'
+import {clsx} from "clsx";
+import Button from "../button/Button.tsx";
+import {ExitIcon} from "../../assets/icons/exit-icon.tsx";
 
 const menuLinks = [
     {id: '#about', name: 'О программе'},
@@ -8,10 +11,17 @@ const menuLinks = [
     {id: '#contacts', name: 'Контакты'},
 ]
 
-export const Menu = () => {
+type Props = {
+    isOpenMenu: boolean
+}
+
+export const Menu = ({isOpenMenu}: Props) => {
     return (
         <nav className={s.nav}>
-            <ul className={s.list}>
+            <ul
+                className={
+                    clsx(isOpenMenu && s.active, s.menu)}
+            >
                 {
                     menuLinks.map(link => (
                         <li
@@ -21,6 +31,15 @@ export const Menu = () => {
                         </li>
                     ))
                 }
+                <div className={s.btnBlock}>
+                    <Button variant={'outlined'} fullWidth={true}>
+                        Демо-версия
+                    </Button>
+                    <Button variant={'secondary'}>
+                        <ExitIcon/>
+                        Вход
+                    </Button>
+                </div>
             </ul>
         </nav>
     );

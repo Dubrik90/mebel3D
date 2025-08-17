@@ -15,13 +15,27 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
+
+
+  }
+}
+
+.menuOpen {
+  button {
+    color: var(--white);
+
+    svg {
+      path {
+        stroke: var(--white);
+      }
+    }
   }
 }
 
 .link {
   font-family: var(--font-family);
   font-weight: 400;
-  font-size: 18px;
+  font-size: clamp(1rem, 0.975rem + 0.13vw, 1.125rem);
   color: var(--text);
 
   :hover {
@@ -32,13 +46,13 @@
 .menu {
   display: flex;
   column-gap: 50px;
-  overflow: auto;
 
   @media (max-width: 1920px) {
-    gap: calc(25px + (50 - 25) * ((100vw - 1440px) / (1920 - 1440)));
+    gap: calc(15px + (50 - 15) * ((100vw - 1170px) / (1920 - 1170)));
   }
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1230px) {
+    overflow: auto;
     display: grid;
     align-content: center;
     justify-content: center;
@@ -52,7 +66,7 @@
     bottom: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--bg-menu);
+    background-color: var(--main);
     z-index: 10;
     transition: left 0.3s;
 
@@ -67,14 +81,14 @@
       left: -100%;
       width: 100%;
       height: var(--header-height);
-      background-color: var(--bg-menu);
+      background-color: var(--main);
       z-index: 10;
       transition: left 0.3s;
     }
 
     .link {
       font-size: 30px;
-      color: var(--wihte);
+      color: var(--white);
       text-align: center;
 
       @media (max-width: 400px) {

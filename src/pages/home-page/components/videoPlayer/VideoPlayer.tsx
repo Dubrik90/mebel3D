@@ -2,10 +2,11 @@ import ReactPlayer from 'react-player';
 import s from './videoPlayer.module.scss'
 
 export const VideoPlayer = ({url}) => (
-    <section className={s.video}>
+    <section id='video' className={s.video}>
         <div className={'container'}>
             <div className={s.content}>
                 <ReactPlayer
+                    controls={true}
                     url={url}
                     config={{
                         youtube: {

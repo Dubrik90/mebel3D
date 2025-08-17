@@ -1,5 +1,6 @@
 .advantages {
   padding: 130px 0;
+  overflow: hidden;
 
   @media (max-width: 1440px) {
     padding: 80px 0;
@@ -13,9 +14,10 @@
 
 .content {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 45% 55%;
+  overflow: hidden;
 
-  @media (max-width: 650px) {
+  @media (max-width: 955px) {
     display: flex;
     flex-direction: column;
   }
@@ -27,59 +29,61 @@
   align-items: flex-start;
   justify-content: center;
   background-color: var(--main-light);
-  padding: 0 80px;
-  gap: 70px;
+  padding: 15px 80px;
+  gap:clamp(1.25rem, 0.625rem + 3.13vw, 4.375rem);
 
   @media (max-width: 1024px) {
-    padding: 0 40px;
-    gap: 35px;
+
+   // padding: 0 40px;
+   // gap: 35px;
   }
-  @media (max-width: 650px) {
+  @media (max-width: 955px) {
     padding: 40px 15px;
-    gap: 25px;
+   // gap: 25px;
   }
 }
 
 .title {
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 70px;
+  font-size: clamp(1.25rem, 0.813rem + 2.19vw, 3.438rem);
   color: var(--text);
 
-  @media (max-width: 1440px) {
-    font-size: 50px;
-  }
-
-  @media (max-width: 1024px) {
-    font-size: 26px;
-  }
-
-  @media (max-width: 650px) {
-    font-size: 22px;
-  }
+  //@media (max-width: 1440px) {
+  //  font-size: 50px;
+  //}
+  //
+  //@media (max-width: 1024px) {
+  //  font-size: 26px;
+  //}
+  //
+  //@media (max-width: 650px) {
+  //  font-size: 22px;
+  //}
 }
 
 .subTitle {
   font-family: var(--font-family);
   font-weight: 400;
-  font-size: 40px;
+  font-size: 30px;
   color: var(--text);
 
   @media (max-width: 1440px) {
     font-size: 25px;
   }
   @media (max-width: 1024px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 
 }
 
 .advImage {
-  padding: 50%;
-  background: url('../../../../assets/image/advantages-image.png') 0 0/cover no-repeat;
+  overflow: hidden;
+  padding: 30%;
+  background: url('../../../../assets/image/advantages-image2.webp') 0 0/cover no-repeat;
 
-  @media (max-width: 650px) {
-    padding: 35%;
-    background-position: center;
+  @media (max-width: 955px) {
+    padding: 22%;
+    background-position: right;
   }
 }

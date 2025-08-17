@@ -30,22 +30,15 @@
     width: 100%;
   }
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+
 }
 
 .back {
   @include button;
 
   gap: 6px;
-
   padding: 0 0.5rem 0 0.1rem;
-
   font-size: 14px;
-  //font-weight: var(--font-weight-regular);
-  //line-height: var(--line-height-m);
-
   border-radius: 4px;
 
   &:hover {
@@ -64,17 +57,21 @@
   &:focus-visible {
     outline: 2px solid var(--text);
   }
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
 }
 
 .primary {
   @include button;
-  color: var(--wihte);
+  color: var(--white);
   background-color: var(--main);
 
 
 
   &:hover {
-    background-color: var(--main-opasiti);
+    background-color: var(--main-opacity);
   }
 
   &:active {
@@ -89,15 +86,10 @@
 
 .secondary {
   @include button;
+
   gap: 10px;
-
-  @media (max-width: 1024px) {
-    padding: 10px 25px;
-  }
-
   color: var(--main);
- // background-color: var(--color-button-bg-secondary);
- // box-shadow: 0 2px 10px rgba(109 109 109 / 25%);
+
 
   &:hover {
     background-color: var(--color-button-bg-secondary-hover);
@@ -111,21 +103,30 @@
     color: var(--color-button-text-secondary-disabled);
     background-color: var(--color-button-bg-secondary);
   }
+
+  @media (max-width: 1024px) {
+    padding: 10px 25px;
+  }
+
 }
 
 .outlined {
   @include button;
+
   color: var(--main);
   background-color: transparent;
   border: 1px solid currentcolor;
 
   &:hover {
-    color: var(--wihte);
+    color: var(--white);
     background-color: var(--main);
   }
+
   @media (max-width: 1024px) {
     padding: 10px 25px;
   }
+
+
 
   &:active {
    // background-color: var(--color-action-active);

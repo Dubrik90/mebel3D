@@ -1,79 +1,94 @@
-import s from './feedback.module.scss'
 import Button from "../../../../Compoments/button/Button.tsx";
 import {Modal} from "../../../../Compoments/modal/Modal.tsx";
 import {useState} from "react";
-import * as Dialog from "@radix-ui/react-dialog";
-import styles from "../../../../Compoments/modal/styles.module.scss";
-import {Cross2Icon} from "@radix-ui/react-icons";
-
+import s from './feedback.module.scss'
+import {motion} from 'framer-motion';
 
 export const Feedback = () => {
-    const [open, setOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpen = () => setIsOpen(true);
+    const handleClose = () => setIsOpen(false);
+
+    const textAnimation = {
+        hidden: {x: -100, opacity: 0},
+        visible: (custom) => ({
+            x: 0,
+            opacity: 1,
+            transition: {
+                delay: custom * 0.2,
+                duration: 0.5,
+            }
+        })
+    }
+    const btnAnimation = {
+        hidden: {x: 100, opacity: 0},
+        visible: (custom) => ({
+            x: 0,
+            opacity: 1,
+            transition: {
+                delay: custom * 0.2,
+                duration: 0.5,
+            }
+        })
+    }
+
 
     return (
-        <section className={s.feedback}>
-            <Dialog.Root>
-                <Dialog.Trigger asChild>
-                    <div className={'container'}>
-                        <div className={s.content}>
-                            <p className={s.title}>Давайте поговорим о продукте</p>
-                            <Button variant={'primary'}
-                                    onClick={() => {
-                                        setOpen(true)
-                                    }}
-                            >
-                                Свяжитесь с нами
-                            </Button>
-                        </div>
+        <motion.section
+            id={'contacts'}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{
+                amount: 0.2,
+                // once: true
+            }} className={s.feedback}>
+            <div className={"container"}>
+                <div className={s.content}>
+                    <motion.p custom={1} variants={textAnimation} className={s.title}>Давайте поговорим о продукте
+                    </motion.p>
+                    <motion.div
+                        custom={1}
+                        variants={btnAnimation}
+                    >
+                        <Button variant={"primary"} onClick={handleOpen}>
+                            Свяжитесь с нами
+                        </Button>
+                    </motion.div>
+
+                </div>
+
+                {/* Используем модальное окно */}
+                <Modal
+                    title="Заполните данные"
+                    description="Мы свяжемся с вами в ближайщее время"
+                    open={isOpen}
+                    onClose={handleClose}
+                >
+                    <div className={'group'}>
+                        <input type="text" required placeholder=" "/>
+                        <span className="highlight"></span>
+                        <span className={'bar'}></span>
+                        <label>Имя</label>
                     </div>
-                </Dialog.Trigger>
-                <Dialog.Portal>
-                    <Dialog.Overlay className={styles.Overlay}/>
-                    <Dialog.Content className={styles.Content}>
-                        <Dialog.Title className={styles.Title}>Edit profile</Dialog.Title>
-                        <Dialog.Description className={styles.Description}>
-                            Make changes to your profile here. Click save when you're done.
-                        </Dialog.Description>
-                        <fieldset className={styles.Fieldset}>
-                            <label className={styles.Label} htmlFor="name">
-                                Name
-                            </label>
-                            <input
-                                className={styles.Input}
-                                id="name"
-                                defaultValue="Pedro Duarte"
-                            />
-                        </fieldset>
-                        <fieldset className={styles.Fieldset}>
-                            <label className={styles.Label} htmlFor="username">
-                                Username
-                            </label>
-                            <input
-                                className={styles.Input}
-                                id="username"
-                                defaultValue="@peduarte"
-                            />
-                        </fieldset>
-                        <div
-                            style={{display: "flex", marginTop: 25, justifyContent: "flex-end"}}
-                        >
-                            <Dialog.Close asChild>
-                                <button className={`${styles.Button} green`}>Save changes</button>
-                            </Dialog.Close>
-                        </div>
-                        <Dialog.Close asChild>
-                            <button className={styles.IconButton} aria-label="Close">
-                                <Cross2Icon/>
-                            </button>
-                        </Dialog.Close>
-                    </Dialog.Content>
-                </Dialog.Portal>
-            </Dialog.Root>
+
+                    <div className={'group'}>
+                        <input type="email" required placeholder=" "/>
+                        <span className="highlight"></span>
+                        <span className={'bar'}></span>
+                        <label>Email</label>
+                    </div>
+
+                    <div className={'group'}>
+                        <input type="number" required placeholder=" "/>
+                        <span className="highlight"></span>
+                        <span className={'bar'}></span>
+                        <label>Телефон</label>
+                    </div>
 
 
-            {/*<Modal open={open}/>*/}
-
-        </section>
+                </Modal>
+            </div>
+        </motion.section>
     );
 };
-

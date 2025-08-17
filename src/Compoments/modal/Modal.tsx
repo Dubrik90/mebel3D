@@ -1,57 +1,41 @@
-
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import styles from "./styles.module.scss";
+import Button from "../button/Button.tsx";
 
-type Props = {
-    open: boolean
+interface ModalProps {
+    title: string;
+    description?: string;
+    children: React.ReactNode;
+    onClose: () => void;
+    open: boolean;
 }
-export const Modal = () => (
-    <Dialog.Root>
-        <Dialog.Trigger asChild>
-            <button className={`${styles.Button} violet`}>Edit profile</button>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-            <Dialog.Overlay className={styles.Overlay} />
-            <Dialog.Content className={styles.Content}>
-                <Dialog.Title className={styles.Title}>Edit profile</Dialog.Title>
-                <Dialog.Description className={styles.Description}>
-                    Make changes to your profile here. Click save when you're done.
-                </Dialog.Description>
-                <fieldset className={styles.Fieldset}>
-                    <label className={styles.Label} htmlFor="name">
-                        Name
-                    </label>
-                    <input
-                        className={styles.Input}
-                        id="name"
-                        defaultValue="Pedro Duarte"
-                    />
-                </fieldset>
-                <fieldset className={styles.Fieldset}>
-                    <label className={styles.Label} htmlFor="username">
-                        Username
-                    </label>
-                    <input
-                        className={styles.Input}
-                        id="username"
-                        defaultValue="@peduarte"
-                    />
-                </fieldset>
-                <div
-                    style={{ display: "flex", marginTop: 25, justifyContent: "flex-end" }}
-                >
-                    <Dialog.Close asChild>
-                        <button className={`${styles.Button} green`}>Save changes</button>
-                    </Dialog.Close>
-                </div>
-                <Dialog.Close asChild>
-                    <button className={styles.IconButton} aria-label="Close">
-                        <Cross2Icon />
-                    </button>
-                </Dialog.Close>
-            </Dialog.Content>
-        </Dialog.Portal>
-    </Dialog.Root>
-);
 
+export const Modal: React.FC<ModalProps> = ({ title, description, children, onClose, open }) => {
+    return (
+        <Dialog.Root open={open} onOpenChange={onClose}>
+            <Dialog.Portal>
+                <Dialog.Overlay className={styles.Overlay} />
+                <Dialog.Content className={styles.Content}>
+                    <Dialog.Title className={styles.Title}>{title}</Dialog.Title>
+                    {description && (
+                        <Dialog.Description className={styles.Description}>
+                            {description}
+                        </Dialog.Description>
+                    )}
+                    <div>{children}</div>
+                    <div style={{ display: "flex", marginTop: 25, justifyContent: "flex-end" }}>
+                        <Dialog.Close asChild>
+                            <button className={`${styles.Button} green`}>Отправить</button>
+                        </Dialog.Close>
+                    </div>
+                    <Dialog.Close asChild>
+                        <button className={styles.IconButton} aria-label="Close">
+                            <Cross2Icon />
+                        </button>
+                    </Dialog.Close>
+                </Dialog.Content>
+            </Dialog.Portal>
+        </Dialog.Root>
+    );
+};

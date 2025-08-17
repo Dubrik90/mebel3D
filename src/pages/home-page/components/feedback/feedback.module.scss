@@ -1,5 +1,6 @@
 .feedback {
   padding: 70px 0;
+  overflow: hidden;
 }
 
 
@@ -7,18 +8,100 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 
   button {
     font-family: var(--font-family);
     font-weight: 700;
-    font-size: 32px;
-    padding: 26px;
+    font-size: clamp(1.125rem, 0.95rem + 0.88vw, 2rem);
+    padding: clamp(15px, 0.8rem + 0.69vw, 26px);
+
+    @media (max-width: 500px) {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }
 
 .title {
   font-family: var(--second-family);
   font-weight: 700;
-  font-size: 56px;
+  font-size: clamp(21px, 0.875rem + 2.19vw, 56px);
   color: var(--main);
+
+  @media (max-width: 1000px) {
+    text-align: center;
+  }
 }
+
+//.group {
+//  position: relative;
+//  margin: 20px 0;
+//  font-family: var(--second-family);
+//}
+//
+//input,
+//textarea {
+//  background: none;
+//  color: var(--text);
+//  font-size: 20px;
+//  padding: 5px;
+//  display: block;
+//  width: 100%;
+//  border: none;
+//  border-radius: 0;
+//  border-bottom: 1px solid var(--muted-color);
+//
+//  &:focus {
+//    outline: none;
+//  }
+//
+//  &:focus ~ label,
+//  &:not(:placeholder-shown) ~ label {
+//    top: -14px;
+//    font-size: 14px;
+//    color: var(--main);
+//
+//  }
+//
+//  &:focus ~ .bar:before {
+//    width: 100%;
+//  }
+//}
+//
+//input[type="password"] {
+//  letter-spacing: 0.3em;
+//}
+//
+//label {
+//  font-family: var(--second-family);
+//  color: var(--muted-color);
+//  font-size: 16px;
+//  font-weight: normal;
+//  position: absolute;
+//  pointer-events: none;
+//  left: 5px;
+//  top: 10px;
+//  transition: var(--transtition-duration-basic) ease all;
+//}
+//
+//.bar {
+//  position: relative;
+//  display: block;
+//  width: 100%;
+//
+//  &:before {
+//    content: '';
+//    height: 2px;
+//    width: 0;
+//    bottom: 0;
+//    position: absolute;
+//    background: var(--main);
+//    transition: var(--transtition-duration-basic) ease all;
+//    left: 0;
+//  }
+//}

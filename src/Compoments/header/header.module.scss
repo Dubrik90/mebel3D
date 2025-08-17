@@ -8,7 +8,8 @@
   display: flex;
   z-index: 60;
  justify-content: center;
-  background-color: var(--wihte);
+  background-color: var(--white);
+  box-shadow: rgba(45, 120, 218, 0.31) 0 10px 10px;
 
   @media (max-width: 1920px) {
   //  padding-top: calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
@@ -22,12 +23,14 @@
   z-index: 50;
 
   svg {
-    width: 374px;
+    width: clamp(8.125rem, 5.075rem + 15.25vw, 23.375rem);
+    height: clamp(2.5rem, 2.275rem + 1.13vw, 3.625rem);
+   // width: 374px;
 
-    @media (max-width: 1920px) {
-      width: calc(180px + (374 - 180) * ((100vw - 320px) / (1920 - 320)));
-
-    }
+    //@media (max-width: 1920px) {
+    //  width: calc(180px + (374 - 180) * ((100vw - 320px) / (1920 - 320)));
+    //
+    //}
 
   }
 
@@ -39,6 +42,23 @@
   align-items: center;
   justify-content: space-between;
 
+}
+.logoBlock{
+
+  z-index: 100;
+  @media (max-width: 1230px) {
+    flex: 1 1 auto;
+  }
+}
+
+.menuOpen {
+  svg {
+    g {
+      path {
+        fill: var(--white);
+      }
+    }
+  }
 }
 
 .btnBlock {
@@ -60,7 +80,7 @@
 .burger {
   display: none;
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1230px) {
     z-index: 50;
     position: relative;
     width: 40px;
@@ -102,13 +122,13 @@
       &::before {
         transform: rotate(-45deg);
         top: calc(50% - 1px);
-        background-color: var(--wihte);
+        background-color: var(--white);
       }
 
       &::after {
         transform: rotate(45deg);
         bottom: calc(50% - 1px);
-        background-color: var(--wihte);
+        background-color: var(--white);
       }
     }
   }
